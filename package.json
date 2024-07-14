@@ -10,6 +10,7 @@
     "farm": "farm"
   },
   "dependencies": {
+    "@types/feather-icons": "^4.29.4",
     "react": "18",
     "react-dom": "18"
   },

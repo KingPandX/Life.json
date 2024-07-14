@@ -4,8 +4,10 @@ import Main from "./components/Main";
 export default function App() {
     return (
         <>
-            <LeftBar />
-            <Main />
+            <div className="container">
+                <LeftBar />
+                <Main />
+            </div>
         </>
     );
 }
