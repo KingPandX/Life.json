@@ -1,6 +1,6 @@
 .container {
-    flex-direction: row;
     display: flex;
+    flex-direction: row;
 }
 
 body {
@@ -41,5 +41,22 @@ body {
     &:hover {
         color: #000;
         text-shadow: #8f9bb6 0px 0px 10px;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        flex-direction: column-reverse;
+    }
+
+    .left-bar {
+        width: 100vw;
+        height: 50px;
+        flex-direction: row;
+    }
+
+    .main {
+        width: 100vw;
+        height: calc(100vh - 50px);
     }
 }
