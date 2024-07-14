@@ -9,11 +9,11 @@ export enum Page {
     notes = "notes",
     tasks = "tasks",
     contacts = "contacts",
-    calendar = "calendar"
+    events = "events"
 }
 
 export default function App() {
-    const [page, setPage] = useState(Page.tasks);
+    const [page, setPage] = useState(Page.notes);
 
     return (
         <>

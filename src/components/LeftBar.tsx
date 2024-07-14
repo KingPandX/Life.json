@@ -15,7 +15,7 @@ export default function LeftBar() {
             <IconButton icon="notes" onClick={() => { changePage(Page.notes) }} />
             <IconButton icon="task_alt" onClick={() => { changePage(Page.tasks) }} />
             <IconButton icon="contacts" onClick={() => { changePage(Page.contacts) }} />
-            <IconButton icon="event" onClick={() => { changePage(Page.calendar) }} />
+            <IconButton icon="event" onClick={() => { changePage(Page.events) }} />
         </div>
     );
 }
