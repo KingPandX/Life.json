@@ -53,6 +53,17 @@ body {
         width: 100vw;
         height: 50px;
         flex-direction: row;
+
+        &>:first-child {
+            margin-left: 15px;
+            margin-bottom: 15px;
+        }
+
+        &>:last-child {
+            margin-top: 15px;
+            margin-right: 15px;
+        }
+
     }
 
     .main {
