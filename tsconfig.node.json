@@ -7,5 +7,9 @@
     "allowSyntheticDefaultImports": true,
     "strict": true
   },
-  "include": ["farm.config.ts", "electron"]
+  "include": [
+    "farm.config.ts",
+    "electron",
+    "electron/modules"
+  ]
 }

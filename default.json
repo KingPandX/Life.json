@@ -1,0 +1,14 @@
+{
+    "life": {
+        "notes": [],
+        "tasks": [],
+        "contacts": [],
+        "events": []
+    },
+    "config": {
+        "version": "0.0.1",
+        "theme": "light",
+        "language": "en",
+        "vaultPassword": ""
+    }
+}
