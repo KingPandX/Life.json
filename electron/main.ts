@@ -61,6 +61,15 @@ app.on('window-all-closed', () => {
 
 app.whenReady().then(createWindow)
 
+// Llmado a obtener life.json
+ipcMain.on('fl-get', (event, type: type | 'ALL') => {
+  if (type === 'ALL') {
+    event.returnValue = Life
+  } else {
+    event.returnValue = Life.life[type]
+  }
+})
+
 // Llamado a guardar life.json
 ipcMain.on('fl-save', (event) => {
   setLife(Life)
