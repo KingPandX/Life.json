@@ -7,3 +7,5 @@ export interface PageContextType {
 }
 
 export const PageContext = createContext({} as PageContextType);
+
+export const ThemeContext = createContext({} as { theme: string; setTheme: Dispatch<SetStateAction<string>> });
