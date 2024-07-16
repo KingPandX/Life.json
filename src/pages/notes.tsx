@@ -22,6 +22,8 @@ export default function Notes() {
                         <p>{note.content}</p>
                         <span className="note-date">{note.date}</span>
                     </div>))}
+
+                {notes.length === 0 && <h3 className="no-notes">No notes</h3>}
             </div>
 
             <div className="floatButton">

@@ -1,6 +1,6 @@
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { app, BrowserWindow, ipcMain } from 'electron'
+import { app, BrowserWindow, dialog, ipcMain } from 'electron'
 import { getLife, createConfig, setLife, life, type } from './modules/life'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -72,7 +72,17 @@ ipcMain.on('fl-get', (event, type: type | 'ALL') => {
 
 // Llamado a guardar life.json
 ipcMain.on('fl-save', (event) => {
-  setLife(Life)
+  dialog.showMessageBox(
+    {
+      message: 'Do you want to save the changes?',
+      type: 'question',
+      buttons: ['Yes', 'No']
+    }
+  ).then((res) => {
+    if (res.response === 0) {
+      setLife(Life)
+    }
+  })
 })
 
 // Agregar un elemento a life.json

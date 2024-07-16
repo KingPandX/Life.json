@@ -30,6 +30,13 @@ export default function CreatingNoteTab({ hide, setHide, setNotes }: CreatingNot
 
     // Form submit
 
+    function getNowDate() {
+        const date = new Date();
+        const day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+        const month = date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : date.getMonth();
+        return date.getFullYear() + '-' + month + '-' + day;
+    }
+
     function handleSubmit() {
         console.log(title, content, date);
         if (title === '') {
@@ -43,7 +50,24 @@ export default function CreatingNoteTab({ hide, setHide, setNotes }: CreatingNot
         }
 
         if (date === '') {
-            setComment('Date cannot be empty');
+            window.ipcRenderer.pushElement('notes', {
+                title,
+                content,
+                date: getNowDate()
+            });
+
+            setNotes(window.ipcRenderer.getElement('notes'));
+            setTitle('');
+            setContent('');
+            setDate('');
+
+            document.getElementById('title-input')!.innerText = '';
+            document.getElementById('content-input')!.innerText = '';
+            const dateIn = document.getElementById('date-input')! as HTMLInputElement;
+            dateIn.value = '';
+
+            setComment('');
+            setHide(true);
             return;
         }
 

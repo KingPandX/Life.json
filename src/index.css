@@ -68,6 +68,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    position: relative;
 }
 
 .creating-note-tab {
@@ -179,7 +180,6 @@ body {
 .note {
     margin-block: 10px;
     margin-inline: 20px;
-    word-wrap: break-word;
     overflow-x: hidden;
     width: 400px;
     max-width: 100%;
@@ -220,6 +220,16 @@ body {
         top: 0;
         right: 0;
     }
+}
+
+.no-notes {
+    font-size: 5rem;
+    font-weight: 700;
+    color: #383838;
+    text-align: center;
+    align-self: center;
+    margin-top: calc(50vh - 5rem);
+
 }
 
 @media (max-width: 450px) {
@@ -264,6 +274,7 @@ body {
     .note {
         width: 80%;
         height: fit-content;
+        word-wrap: break-word;
 
         & h3 {
             word-wrap: break-word;
