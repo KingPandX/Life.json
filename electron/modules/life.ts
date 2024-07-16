@@ -45,11 +45,13 @@ export interface note {
 }
 
 //Tasks sistema de tareas
+export type complete = 'done' | 'undone' | 'never'
+
 export interface tElement {
     type: 'task' | 'group',
     title?: string,
     date?: string,
-    done?: boolean,
+    done?: complete,
     childrens?: tElement[]
 }
 
