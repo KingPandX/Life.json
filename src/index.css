@@ -44,9 +44,197 @@ body {
     }
 }
 
-@media (max-width: 420px) {
+.hide {
+    display: none !important;
+}
+
+.notes {
+    width: calc(100vw - 50px);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.floatButton {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.note-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.creating-note-tab {
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+    background: #e2e2e2;
+    padding: 40px;
+    position: absolute;
+    z-index: 100;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    & .tab-icon {
+        position: absolute;
+        top: 10px;
+        right: 0;
+    }
+}
+
+.FormControll {
+    padding: 10px;
+    width: fit-content;
+    height: fit-content;
+
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.Note-view {
+    min-height: 100px;
+    width: 500px;
+    text-wrap: wrap;
+    padding: 20px;
+
+    overflow: hidden;
+    display: flex;
+
+    align-items: center;
+    text-wrap: wrap;
+
+    flex-direction: column;
+
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+
+    & .Note-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        padding: 10px;
+        border-bottom: 1px solid #e2e2e2;
+        width: 100%;
+        text-wrap: balance;
+    }
+
+    & .Note-content {
+        padding: 10px;
+        width: 100%;
+        min-height: 100px;
+        text-wrap: pretty;
+    }
+
+    & .Note-date {
+        font-size: 0.8rem;
+        padding: 10px;
+        border-top: 1px solid #e2e2e2;
+        width: 100%;
+        text-align: right;
+    }
+
+    & .Note-Button {
+        cursor: pointer;
+        color: #383838;
+        font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;
+        padding: 10px 20px;
+
+        box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.4);
+        border-radius: 3px;
+
+        transition: color, text-shadow 0.3s ease-in-out;
+
+        &:hover {
+            color: #000;
+            text-shadow: #8f9bb6 0px 0px 10px;
+            box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.4);
+        }
+
+    }
+
+    & .Note-Label {
+        font-size: 0.8rem;
+        padding: 10px;
+        color: red;
+        width: 100%;
+        text-align: left;
+    }
+}
+
+.note {
+    margin-block: 10px;
+    margin-inline: 20px;
+    word-wrap: break-word;
+    overflow-x: hidden;
+    width: 400px;
+    max-width: 100%;
+    position: relative;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+
+    & h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        padding: 10px;
+        border-bottom: 1px solid #e2e2e2;
+        width: 100%;
+        text-wrap: balance;
+    }
+
+    & p {
+        padding: 10px;
+        width: 100%;
+        min-height: 100px;
+        text-wrap: pretty;
+    }
+
+    &>.note-date {
+        font-size: 0.8rem;
+        padding: 10px;
+        border-top: 1px solid #e2e2e2;
+        width: 100%;
+        height: fit-content;
+        text-align: right;
+    }
+
+    &>:first-child {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .floatButton {
+        bottom: calc(10px + 50px);
+    }
+
     .container {
         flex-direction: column-reverse;
+    }
+
+    .notes {
+        width: 100vw;
+        height: calc(100vh - 50px);
     }
 
     .left-bar {
@@ -69,5 +257,40 @@ body {
     .main {
         width: 100vw;
         height: calc(100vh - 50px);
+    }
+}
+
+@media (max-width: 650px) {
+    .note {
+        width: 80%;
+        height: fit-content;
+
+        & h3 {
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+
+        & p {
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+    }
+
+    .Note-view {
+        width: 80%;
+        max-width: 95%;
+    }
+
+    .creating-note-tab {
+        width: 80%;
+        max-height: 90%;
+
+        & .Note-content {
+            overflow-y: auto;
+        }
+
+        & .Note-title {
+            overflow-y: auto;
+        }
     }
 }
