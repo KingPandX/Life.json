@@ -5,6 +5,8 @@ import { getLife, createConfig, setLife, life, type } from './modules/life'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
+createConfig()
+
 let Life: life = getLife()
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
@@ -36,9 +38,6 @@ function createWindow() {
       preload: path.join(__dirname, './preload.mjs'),
     },
   })
-
-  // Create the configuration file if it does not exist
-  createConfig()
 
   // Test active push message to Renderer-process.
   win.webContents.on('did-finish-load', () => {
@@ -93,4 +92,9 @@ ipcMain.on('fl-add', (event, type: type, data) => {
 // Eliminar un elemento de life.json
 ipcMain.on('fl-delete', (event, type: type, index: number) => {
   Life.life[type].splice(index, 1)
+})
+
+// Cambiar información de un elemento de life.json
+ipcMain.on('fl-update', (event, type: type, index: number, data) => {
+  Life.life[type][index] = data
 })

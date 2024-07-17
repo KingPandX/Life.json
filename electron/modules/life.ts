@@ -44,15 +44,10 @@ export interface note {
     date: string
 }
 
-//Tasks sistema de tareas
-export type complete = 'done' | 'undone' | 'never'
-
-export interface tElement {
-    type: 'task' | 'group',
-    title?: string,
-    date?: string,
-    done?: complete,
-    childrens?: tElement[]
+export interface task {
+    title: string,
+    done: boolean,
+    date: string,
 }
 
 export interface contact {
@@ -76,7 +71,7 @@ export interface event {
 export interface life {
     life: {
         notes: note[],
-        tasks: tElement[],
+        tasks: task[],
         contacts: contact[],
         events: event[]
     },

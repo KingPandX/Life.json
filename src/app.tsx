@@ -11,7 +11,8 @@ declare global {
             getElement: (type: type | 'ALL') => any,
             pushElement: (type: type, data: any) => void,
             removeElement: (type: type, index: number) => void,
-            saveElement: () => void
+            saveElement: () => void,
+            updateElement: (type: type, index: number, data: any) => void
         }
     }
 }
